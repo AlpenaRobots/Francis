@@ -48,8 +48,6 @@ public class drive extends Subsystem {
     private RobotDrive robotDrive41;
     private DoubleSolenoid doubleSolenoid1;
 
-    public double aproxMatchTime;
-
 
     public drive() {
 

@@ -76,6 +76,14 @@ public class screwJack extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    
+    public void setFrontScrewSpeed(double speed) {
+        talonSRX10.set(speed);
+    }
+
+    public void setRearScrewSpeed(double speed) {
+        talonSRX11.set(speed);
+    }
 
 }
 
