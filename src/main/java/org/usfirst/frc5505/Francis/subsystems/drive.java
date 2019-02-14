@@ -77,7 +77,7 @@ public class drive extends Subsystem {
         
         doubleSolenoid1 = new DoubleSolenoid(0, 0, 1);
         addChild("Double Solenoid 1",doubleSolenoid1);
-        
+         
         
 
 

@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
     public static drive drive;
     public static intake intake;
     public static elevator elevator;
-    public static axes axes;
+    //public static axes axes;
     public static wrist wrist;
     public static screwJack screwJack;
 
@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
         drive = new drive();
         intake = new intake();
         elevator = new elevator();
-        axes = new axes();
+        //axes = new axes();
         wrist = new wrist();
         screwJack = new screwJack();
 

@@ -39,7 +39,7 @@ public class dropAxes extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        Robot.axes.togglePin(Robot.oi.getxbox1());
+        //Robot.axes.togglePin(Robot.oi.getxbox1());
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -56,7 +56,7 @@ public class dropAxes extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.oi.getxbox1().setRumble(RumbleType.kLeftRumble, 0);
+        //Robot.oi.getxbox1().setRumble(RumbleType.kLeftRumble, 0);
     }
 
     // Called when another command which requires one or more of the same
