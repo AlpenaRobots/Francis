@@ -51,19 +51,19 @@ public class drive extends Subsystem {
 
     public drive() {
 
-        sparkMAX1 = new CANSparkMax(1, MotorType.kBrushless);
+        sparkMAX1 = new CANSparkMax(16, MotorType.kBrushless);
         
         
         
-        sparkMAX2 = new CANSparkMax(2, MotorType.kBrushless);
+        sparkMAX2 = new CANSparkMax(1, MotorType.kBrushless);
         
         
         
-        sparkMAX3 = new CANSparkMax(3, MotorType.kBrushless);
+        sparkMAX3 = new CANSparkMax(2, MotorType.kBrushless);
         
         
         
-        sparkMAX4 = new CANSparkMax(4, MotorType.kBrushless);
+        sparkMAX4 = new CANSparkMax(3, MotorType.kBrushless);
         
         
         
@@ -75,7 +75,7 @@ public class drive extends Subsystem {
         robotDrive41.setMaxOutput(1.0);
 
         
-        doubleSolenoid1 = new DoubleSolenoid(0, 0, 1);
+        doubleSolenoid1 = new DoubleSolenoid(0, 6, 7);
         addChild("Double Solenoid 1",doubleSolenoid1);
          
         
