@@ -50,8 +50,10 @@ public class drive extends Subsystem {
     private CANSparkMax sparkMAX4;
     private RobotDrive robotDrive41;
     private DoubleSolenoid doubleSolenoid1;
-    //private Ultrasonic leftUltra = new Ultrasonic(1, 0);
-    //private Ultrasonic rightUltra = new Ultrasonic(3, 2);
+    private Ultrasonic leftUltra = new Ultrasonic(1, 0);
+    private Ultrasonic rightUltra = new Ultrasonic(3, 2);
+
+    public boolean isDriverControlMode = true;
 
 
     public drive() {
@@ -122,7 +124,9 @@ public class drive extends Subsystem {
     // here. Call these from Commands.
     public void driveBase(Joystick stick) {
         double reduction = .75;
-        robotDrive41.tankDrive(stick.getRawAxis(1) * reduction, stick.getRawAxis(5) * reduction);
+        if (isDriverControlMode) {
+            robotDrive41.tankDrive(stick.getRawAxis(1) * reduction, stick.getRawAxis(5) * reduction);
+        }
         if (DriverStation.getInstance().getMatchTime() > 29 && DriverStation.getInstance().getMatchTime() < 31 && DriverStation.getInstance().isOperatorControl()) {
             stick.setRumble(RumbleType.kLeftRumble, 1);
         } else if (DriverStation.getInstance().getMatchTime() <= 29 && DriverStation.getInstance().isOperatorControl()) {
@@ -134,13 +138,31 @@ public class drive extends Subsystem {
         System.out.println("Started Shift Command");
         if (doubleSolenoid1.get() != Value.kForward) {
             doubleSolenoid1.set(Value.kForward);
-            System.out.println("Shifted Forward");
+            System.out.println("Shifted to Low Gear");
             SmartDashboard.putBoolean("Gear", false);
         } else {
             doubleSolenoid1.set(Value.kReverse);
-            System.out.println("Shifted Backwards");
+            System.out.println("Shifted to High Gear");
             SmartDashboard.putBoolean("Gear", true);
         }
+    }
+
+    public boolean ultraWallAllign() {
+        double turnFactor = .05;
+        double speedFactor = .1;
+        double maxError = 1;
+        double difference = rightUltra.getRangeInches() - leftUltra.getRangeInches();
+        if (Math.abs(difference) > maxError) {
+            robotDrive41.arcadeDrive(speedFactor, difference * turnFactor);
+            return false;
+        } else {
+            robotDrive41.arcadeDrive(0, 0);
+            return true;
+        }
+    }
+
+    public void returnDriverControl() {
+        isDriverControlMode = true;
     }
 }
 
