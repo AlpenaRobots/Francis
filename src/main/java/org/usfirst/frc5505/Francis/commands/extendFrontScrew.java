@@ -38,6 +38,7 @@ public class extendFrontScrew extends Command {
     @Override
     protected void initialize() {
         Robot.screwJack.setFrontScrewSpeed(.5);
+        Robot.screwJack.setRearScrewSpeed(.5);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -55,6 +56,7 @@ public class extendFrontScrew extends Command {
     @Override
     protected void end() {
         Robot.screwJack.setFrontScrewSpeed(0);
+        Robot.screwJack.setRearScrewSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

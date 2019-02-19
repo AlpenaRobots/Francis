@@ -85,12 +85,12 @@ public class OI {
         a2.whileHeld(new intakeIn());
         xbox1 = new Joystick(0);
         
-        y1 = new JoystickButton(xbox1, 1);
+        y1 = new JoystickButton(xbox1, 4);
         y1.whileHeld(new extendFrontScrew());
-        x1 = new JoystickButton(xbox1, 1);
-        x1.whileHeld(new retractRearScrew());
-        b1 = new JoystickButton(xbox1, 1);
-        b1.whileHeld(new extendRearScrew());
+        x1 = new JoystickButton(xbox1, 3);
+        x1.whileHeld(new extendRearScrew());
+        b1 = new JoystickButton(xbox1, 2);
+        b1.whileHeld(new retractFrontScrew());
         a1 = new JoystickButton(xbox1, 1);
         a1.whileHeld(new retractRearScrew());
         lb1Start = new JoystickButton(xbox1, 5);
