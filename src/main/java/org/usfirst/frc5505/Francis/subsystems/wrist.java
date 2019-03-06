@@ -83,11 +83,7 @@ public class wrist extends Subsystem {
 
     public void wristJoystick(Joystick stick) {
         double reduction = .45;
-        //if (stick.getRawAxis(1) < .05 && stick.getRawAxis(1) > -.05) {
-         //   setWrist(-.02);
-        //} else {
-            setWrist(stick.getRawAxis(1)*reduction);
-        //}
+        setWrist(stick.getRawAxis(1)*reduction);
     }
 }
 
